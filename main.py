@@ -122,6 +122,10 @@ def fetch_transcript(video_id: str, lang_priority=("ja", "en")) -> List[Dict[str
                     continue
     except (TranscriptsDisabled, CouldNotRetrieveTranscript):
         pass
+    except Exception as e:
+        # 予期しないエラー（XMLパースエラーなど）をキャッチして継続
+        print(f"Warning: Failed to fetch transcript for video {video_id}: {e}")
+        pass
     return []
 
 
@@ -129,7 +133,7 @@ def fetch_transcript(video_id: str, lang_priority=("ja", "en")) -> List[Dict[str
 #                                   Main                                      #
 # --------------------------------------------------------------------------- #
 def main():
-    load_dotenv()
+    load_dotenv(override=True)
 
     ap = argparse.ArgumentParser(description="Sort channel videos by likes and get transcripts")
     ap.add_argument(

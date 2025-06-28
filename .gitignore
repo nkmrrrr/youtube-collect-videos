@@ -1,2 +1,4 @@
 .env
 .venv
+.output.json
+.output_with_transcript.json
