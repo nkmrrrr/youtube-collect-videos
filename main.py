@@ -89,6 +89,7 @@ class YouTubeClient:
                         "published_at": v["snippet"]["publishedAt"],
                         "likes": int(s.get("likeCount", 0)),
                         "views": int(s.get("viewCount", 0)),
+                        "url": f"https://www.youtube.com/watch?v={v['id']}",
                     }
                 )
                 pbar.update(1)

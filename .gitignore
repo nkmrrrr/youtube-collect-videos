@@ -1,4 +1,17 @@
+# Environment and dependencies
 .env
 .venv/
+__pycache__/
+*.pyc
+
+# Output files
 output.json
 output_with_transcripts.json
+*.json
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
